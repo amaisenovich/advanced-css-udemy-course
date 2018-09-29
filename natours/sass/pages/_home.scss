@@ -1,0 +1,120 @@
+.section-about {
+    background-color: $color-grey-light-1;
+    margin: -28vh 0 -32vh 0;
+    padding: 32vh 0 28vh 0;
+
+    @include responsive(tabletp) {
+        margin: -14vh 0 -17vh 0;
+        padding: 17vh 0 16vh 0;
+    }
+}
+
+.section-features {
+    margin-top: 8rem;
+    padding: 20rem;
+    position: relative;
+    background-image: linear-gradient(to right bottom, rgba($color-primary, 0.85), rgba($color-primary-dark, 0.85)),
+                      url("../img/nat-4.jpg");
+    background-size: cover;
+    background-position: top;
+    transform: skewY(-7deg);
+
+    & > * {
+        transform: skewY(7deg);
+    }
+
+    @include responsive(desksm) {
+        padding: 12rem 0rem;
+    }
+}
+
+.section-tours {
+    background-color: $color-grey-light-1;
+    margin-top: -22vh;
+    padding-top: 34vh;
+    padding-bottom: 14vh;
+
+    @include responsive(tabletp) {
+        padding-top: 30vh;
+        padding-bottom: 8vh;
+    }
+}
+
+.section-stories {
+    padding: 8rem 0;
+    position: relative;
+
+    @include responsive(phone) {
+        padding: 4rem 0;
+    }
+}
+
+.section-book {
+    padding: 15rem 0;
+    background-image: linear-gradient(to right bottom, $color-primary, $color-primary-dark);
+
+    @include responsive(desksm) {
+        padding: 10rem 0;
+    }
+
+    @include responsive(tabletl) {
+        padding: 4rem 0;
+    }
+}
+
+.book {
+    background-image: linear-gradient(
+        105deg, 
+        rgba($color-white, .9) 60%,
+        transparent 60%), url(../img/nat-10.jpg);
+    background-size: cover;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .3);
+
+    @include responsive(tabletl) {
+        background-image: linear-gradient(
+            105deg, 
+            rgba($color-white, .9) 65%,
+            transparent 65%), url(../img/nat-10.jpg);
+    }
+
+    @include responsive(tabletp) {
+        background-image: linear-gradient(
+            105deg, 
+            rgba($color-white, .9) 70%,
+            transparent 70%), url(../img/nat-10.jpg);
+    }
+
+    @include responsive(phone) {
+        background-image: url(../img/nat-10.jpg);
+        background-color: rgba($color-white, .85);
+        background-blend-mode: color;
+    }
+
+    &__form {
+        width: 60%;
+        padding: 6rem;
+
+        @include responsive(tabletl) {
+            width: 65%;
+            padding: 4rem;
+        }
+
+        @include responsive(tabletp) {
+            width: 70%;
+            padding: 4rem;
+        }
+
+        @include responsive(phone) {
+            width: auto;
+        }
+
+        .heading-secondary {
+            padding: 0;
+
+            @include responsive(phone) {
+                font-size: 3rem;
+            }
+        }
+    }
+}

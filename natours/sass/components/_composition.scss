@@ -1,0 +1,108 @@
+.composition {
+    position: relative;
+    padding-left: 5rem;
+    line-height: 0;
+
+    @include responsive(tabletl) {
+        top: 2.5vw;
+    }
+
+    @include responsive(tabletp) {
+        top: 0;
+        text-align: center;
+        padding-left: 0;
+        width: 100%;
+        height: 42vw;
+    }
+
+    @include responsive(phone) {
+        height: 60vw;
+    }
+
+    &__photo {
+        width: 55%;
+        box-shadow: 0 1.5rem 4rem rgba($color-text-dark, .6);
+        border-radius: .2px;
+        position: absolute;
+        transition: all .1s;
+        z-index: 0;
+        outline-offset: 1rem;
+        backface-visibility: hidden;
+        cursor: pointer;
+
+        @include responsive(tabletp) {
+            width: 45%;
+            display: inline-block;
+        }
+
+        @include responsive(phone) {
+            width: 75%;
+            display: inline-block;
+        }
+        
+        &--p1 {
+            left: 2rem;
+            top: -2rem;
+        }
+
+        &--p2 {
+            right: 0;
+            top: 2.5rem;
+        }
+
+        &--p3 {
+            left: 10.5rem;
+            top: 9rem;
+        }
+
+        @include responsive(tabletp) {
+            &--p1 {
+                left: 10vw;
+                top: 2vw;
+            }
+    
+            &--p2 {
+                right: 8vw;
+                top: 6vw;
+            }
+    
+            &--p3 {
+                left: 18vw;
+                top: 16vw;
+            }
+        }
+
+        @include responsive(phone) {
+            &--p1 {
+                left: 0;
+                right: unset;
+                top: 0;
+            }
+    
+            &--p2 {
+                right: 0;
+                top: 6vw;
+            }
+    
+            &--p3 {
+                left: 8vw;
+                top: 20vw;
+            }
+        }
+
+        &:hover {
+            outline: 1rem solid $color-primary;
+            z-index: 1;
+            transform: scale(1.2, 1.2) translateY(-.5rem);
+            box-shadow: 0 1.5rem 4rem rgba(black, 1);
+
+            @include responsive(phone) {
+                transform: scale(1.1, 1.1) translateY(-.5rem);
+            }
+        }
+    }
+
+    &:hover &__photo:not(:hover) {
+        transform: scale(0.9, 0.9);
+    }
+}

@@ -1,0 +1,47 @@
+.radio-button {
+    &__label {
+        position: relative;
+        font-size: inherit;
+        cursor: pointer;
+        padding-left: 3rem;
+    }
+
+    &__button {
+        outline: none;
+        height: 2rem;
+        width: 2rem;
+        border: 4px solid $color-primary;
+        display: inline-block;
+        border-radius: 20rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: scale(1, 1);
+        transition: all .2s;
+
+        &:hover,
+        &:focus {
+            transform: scale(1.3, 1.3);
+        }
+
+        &::after {
+            @include abs-center;
+            content: "";
+            display: block;
+            height: .8rem;
+            width: .8rem;
+            border-radius: 50%;
+            background-color: $color-primary;
+            opacity: 0;
+            transition: opacity .2s;
+        }
+    }
+
+    &__input {
+        display: none;
+    }
+
+    &__input:checked + &__label > &__button::after {
+        opacity: 1;
+    }
+}

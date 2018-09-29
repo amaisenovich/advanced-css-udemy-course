@@ -1,0 +1,105 @@
+.story {
+    width: 80%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    background-color: rgba($color-white, .6);
+    border-radius: 3px;
+    padding: 6rem 10rem 6rem 16rem;
+    font-size: $font-size;
+    clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+
+    @include responsive(tabletp) {
+        width: 100%;
+        padding: 6rem 7rem 6rem 10rem;
+    }
+
+    @include responsive(phone) {
+        width: 100%;
+        padding: 4rem 4rem;
+        clip-path: none;
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+        text-align: center;
+    }
+
+    &__shape {
+        width: 15rem;
+        height: 15rem;
+        float: left;
+        shape-outside: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        transform: translateX(-3rem);
+        text-align: center;
+
+        @include responsive(phone) {
+            height: auto;
+            width: auto;
+            float: unset;
+            shape-outside: none;
+            clip-path: none;
+            transform: translateX(0);
+            margin: 0 auto 3rem auto;
+        }
+    }
+
+    @include responsive(phone) {
+        &__text {
+            width: 100%;
+        }
+    }
+
+    &__image {
+        height: 100%;
+        transform: translateX(-3.5rem) scale(1.4);
+        transition: all .5s ease;
+
+        @include responsive(phone) {
+            height: 18rem;
+            transform: translateX(0) scale(1);
+            clip-path: circle(38% at 50% 50%);
+        }
+    }
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        color: $color-white;
+        font-size: 1.7rem;
+        text-transform: uppercase;
+        text-align: center;
+        opacity: 0;
+        backface-visibility: hidden;
+        transition: all .1s;
+
+        @include responsive(phone) {
+            position: relative;
+            transform: translate(0, 0);
+            top: 0;
+            left: 0;
+            opacity: 1;
+            color: $color-grey-dark-1;
+            font-weight: 500;
+        }
+    }
+
+    &:hover &__caption {
+        opacity: 1;
+        transform: translate(-49.9%, -49.9%);
+
+        @include responsive(phone) {
+            transform: translate(0, 0);
+        }
+    }
+
+    &:hover &__image {
+        transform: translateX(-3.5rem) scale(1);
+        filter: blur(3px) brightness(80%);
+
+        @include responsive(phone) {
+            transform: translateX(0) scale(1);
+            filter: blur(0) brightness(100%);
+        }
+    }
+}
